@@ -1,4 +1,4 @@
-// See https://adventofcode.com/2020/day/6
+// See https://adventofcode.com/2020/day/7
 import fs from 'fs'
 import assert from 'assert'
 
