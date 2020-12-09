@@ -28,13 +28,9 @@ function findContiguousRangeForSum(numbers: number[], sum: number): number[] {
 
   assert(sumIndex > 0)
 
-  for (let index = 0; index < numbers.length; index += 1) {
-    if (index === sumIndex) {
-      break
-    }
-
-    for (let length = 1; length - 1 + index < sumIndex; length += 1) {
-      const range = numbers.slice(index, index + length - 1)
+  for (let index = 0; index < sumIndex; index += 1) {
+    for (let length = 0; length + index < sumIndex; length += 1) {
+      const range = numbers.slice(index, index + length)
       const rangeSum = range.reduce((total, n) => total + n, 0)
 
       if (rangeSum === sum) {
