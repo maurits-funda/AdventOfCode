@@ -8,7 +8,7 @@ async function run() {
 
   const invalidNumberTest = findInvalidNumber(testNumbers, 5)
   assert.strictEqual(invalidNumberTest, 127)
-  const invalidRangeTest = findContinuousRangeForSum(testNumbers, invalidNumberTest)
+  const invalidRangeTest = findContiguousRangeForSum(testNumbers, invalidNumberTest)
   assert.deepStrictEqual(invalidRangeTest, [15, 25, 47, 40])
   assert.deepStrictEqual(Math.min(...invalidRangeTest) + Math.max(...invalidRangeTest), 62)
 
@@ -19,11 +19,11 @@ async function run() {
     .map(Number)
 
   const invalidNumber = findInvalidNumber(numbers, 25)
-  const invalidRange = findContinuousRangeForSum(numbers, invalidNumber)
+  const invalidRange = findContiguousRangeForSum(numbers, invalidNumber)
   console.log(`Encryption weakness: ${Math.min(...invalidRange) + Math.max(...invalidRange)}`)
 }
 
-function findContinuousRangeForSum(numbers: number[], sum: number): number[] {
+function findContiguousRangeForSum(numbers: number[], sum: number): number[] {
   const sumIndex = numbers.indexOf(sum)
 
   assert(sumIndex > 0)
@@ -43,7 +43,7 @@ function findContinuousRangeForSum(numbers: number[], sum: number): number[] {
     }
   }
 
-  throw new Error('Continuous range not found')
+  throw new Error('Contiguous range not found')
 }
 
 run().catch((err) => {
